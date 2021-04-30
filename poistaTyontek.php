@@ -8,13 +8,13 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $asiakastunnus = filter_input(INPUT_GET,'asiakastunnus',FILTER_SANITIZE_NUMBER_INT);
+    $tyontektunnus = filter_input(INPUT_GET,'tyontektunnus',FILTER_SANITIZE_NUMBER_INT);
 
-    $kysely = $conn->prepare("DELETE FROM asiakas WHERE asiakastunnus = :asiakastunnus");
-    $kysely->bindValue(':asiakastunnus',$asiakastunnus, PDO::PARAM_INT);
+    $kysely = $conn->prepare("DELETE FROM tyontekija WHERE tyontektunnus = :tyontektunnus");
+    $kysely->bindValue(':tyontektunnus',$tyontektunnus, PDO::PARAM_INT);
     $kysely->execute();
 
-    header('Location: http://localhost/harjoitustyö-php/index.php');
+    header('Location: http://localhost/harjoitustyö-php/tyontekijat.php');
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }

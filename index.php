@@ -18,7 +18,9 @@
                 <input type="submit" value="Uusi asiakas" class="btn btn-warning form-label" />
             </form>
         </div>
+        <h3>Asiakkaat:</h3>
         <?php
+            require "tilauksetAsiakas.php";
             $servername = "localhost";
             $username = "harjoitustyoUser";
             $password = "tIPOgJc85ThmqgJb";
@@ -34,7 +36,7 @@
                 $result = $stmt->fetchAll();
 
                 foreach($result as $row) {
-                    print("<hr style='width:15%;border:blue solid'>");
+                    print("<hr style='width:25%;border:blue solid'>");
 
                     print("<p>");
                     print("<b>Asiakastunnus: </b>");
@@ -66,6 +68,10 @@
 
                     print("<a href='poistaAsiakas.php?asiakastunnus=$asiakastunnus'>Poista asiakastiedot</a>");
                     print("&nbsp; | &nbsp;");
+
+                    print("<p><b>Tilatut ajot:</b></p>");
+                    tilauksetAsiakas($asiakastunnus);
+
                 }
 
             } catch(PDOException $e) {
@@ -77,4 +83,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>
-
