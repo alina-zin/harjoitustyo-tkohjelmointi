@@ -6,7 +6,7 @@
 </head>
 <body>
 <form action="tyontekijat.php">
-    <input type="submit" class="btn btn-secondary" value="Etusivu" />
+    <input type="submit" class="btn btn-secondary" value="Työntekijät" />
 </form>
         <h1><i>Oulun bussifirma</i></h1>
         <h3>Lisää uusi työntekijä:</h3>

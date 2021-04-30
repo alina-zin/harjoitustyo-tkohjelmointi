@@ -20,6 +20,7 @@
         </div>
         <h3>Työntekijät:</h3>
         <?php
+        require "tyosuhde.php";
             $servername = "localhost";
             $username = "harjoitustyoUser";
             $password = "tIPOgJc85ThmqgJb";
@@ -71,7 +72,7 @@
                     print("<a href='tilauksetTyontek.php?tyontektunnus=$tyontektunnus'>Näytä tilausajot</a>");
 
                     print("<p><b>Työsuhdehistoria:</b></p>");
-
+                    tyosuhde($tyontektunnus);
 
                 }
 

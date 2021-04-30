@@ -8,16 +8,22 @@ nimi VARCHAR(50) NOT NULL,
 henktunnus VARCHAR(11) NOT NULL, 
 puh VARCHAR(13) NOT NULL ); 
 
-INSERT INTO tyontekija (nimi, henktunnus, puh) VALUES ("Matti Meikäläinen","010180-4567", 0509876543);
-INSERT INTO tyontekija (nimi, henktunnus, puh) VALUES ("Ville Meikäläinen","121290-1343", 0509871234);
+INSERT INTO tyontekija (nimi, henktunnus, puh) VALUES ("Matti Meikäläinen","010180-4567", "0509876543");
+INSERT INTO tyontekija (nimi, henktunnus, puh) VALUES ("Ville Meikäläinen","121290-1343", "0509871234");
 
 
 CREATE TABLE tyosuhde ( 
-Tyontektunnus INT AUTO_INCREMENT,  
-tyonimike VARCHAR(50), 
+Tyontektunnus INT NOT NULL,  
+tyonimike VARCHAR(50) NOT NULL, 
 Aloituspvm DATE NOT NULL, 
 Lopetuspvm DATE, 
-CONSTRAINT tyosuhde_pk PRIMARY KEY (tyontektunnus, aloituspvm)); 
+CONSTRAINT tyosuhde_pk PRIMARY KEY (tyontektunnus, aloituspvm));
+
+INSERT INTO tyosuhde VALUES (1,'Linja-autonkuljettaja', '2001-10-01 00:00:00', '2009-09-04 00:00:00');
+INSERT INTO tyosuhde VALUES (1,'Linja-autonkuljettaja', '2010-01-10', '2016-05-30');
+INSERT INTO tyosuhde (tyontektunnus, tyonimike, Aloituspvm) VALUES (1,'Linja-autonkuljettaja', '2016-06-01 00:00:00');
+INSERT INTO tyosuhde VALUES (2,'Linja-autonkuljettaja', '2015-10-01', '2020-08-04');
+INSERT INTO tyosuhde (tyontektunnus, tyonimike, Aloituspvm) VALUES (2,'Linja-autonkuljettaja', '2020-08-05');
 
 CREATE TABLE halli ( 
 hallinro INT PRIMARY KEY, 
@@ -57,8 +63,8 @@ nimi VARCHAR(50) NOT NULL,
 puh VARCHAR(13) NOT NULL, 
 sahkoposti VARCHAR(50));
 
-INSERT INTO asiakas (nimi, puh, sahkoposti) VALUES ("Emma Virtanen", 0449872356, "emma@posti.fi");
-INSERT INTO asiakas (nimi, puh, sahkoposti) VALUES ("Kalle Järvi", 0449123356, "kalle@jarvi.fi");
+INSERT INTO asiakas (nimi, puh, sahkoposti) VALUES ("Emma Virtanen", "0449872356", "emma@posti.fi");
+INSERT INTO asiakas (nimi, puh, sahkoposti) VALUES ("Kalle Järvi", "0449123356", "kalle@jarvi.fi");
 
 
 CREATE TABLE tilausajo ( 
