@@ -5,8 +5,12 @@ USE bussiliikenne;
 CREATE TABLE tyontekija ( 
 tyontektunnus INT PRIMARY KEY AUTO_INCREMENT, 
 nimi VARCHAR(50) NOT NULL, 
-henktunnus INT NOT NULL, 
+henktunnus VARCHAR(11) NOT NULL, 
 puh INT NOT NULL ); 
+
+INSERT INTO tyontekija (nimi, henktunnus, puh) VALUES ("Matti Meikäläinen","010180-4567", 0509876543);
+INSERT INTO tyontekija (nimi, henktunnus, puh) VALUES ("Ville Meikäläinen","121290-1343", 0509871234);
+
 
 CREATE TABLE tyosuhde ( 
 Tyontektunnus INT AUTO_INCREMENT,  
@@ -25,7 +29,11 @@ rekisteri VARCHAR(10),
 hallinro INT, 
 malli VARCHAR(50), 
 kapasiteetti INT, 
-CONSTRAINT hallinro_viite FOREIGN KEY (hallinro) REFERENCES halli (hallinro)); 
+CONSTRAINT hallinro_viite FOREIGN KEY (hallinro) REFERENCES halli (hallinro));
+
+INSERT INTO ajoneuvo (ajoneuvo_nro, rekisteri, malli, kapasiteetti) VALUES (1, "IIK-001","Bussi L",66);
+INSERT INTO ajoneuvo (ajoneuvo_nro, rekisteri, malli, kapasiteetti) VALUES (2, "IIK-017","Bussi M",54);
+INSERT INTO ajoneuvo (ajoneuvo_nro, rekisteri, malli, kapasiteetti) VALUES (3, "IIK-114","Bussi S",25);
 
 CREATE TABLE huolto ( 
 huoltonro INT PRIMARY KEY AUTO_INCREMENT, 
@@ -47,7 +55,11 @@ CREATE TABLE asiakas (
 asiakastunnus INT PRIMARY KEY AUTO_INCREMENT, 
 nimi VARCHAR(50) NOT NULL, 
 puh INT NOT NULL, 
-sahkoposti VARCHAR(50)); 
+sahkoposti VARCHAR(50));
+
+INSERT INTO asiakas (nimi, puh, sahkoposti) VALUES ("Emma Virtanen", 0449872356, "emma@posti.fi");
+INSERT INTO asiakas (nimi, puh, sahkoposti) VALUES ("Kalle Järvi", 0449123356, "kalle@jarvi.fi");
+
 
 CREATE TABLE tilausajo ( 
 tilausnro INT PRIMARY KEY AUTO_INCREMENT, 
@@ -63,4 +75,8 @@ CONSTRAINT asiakas_viite FOREIGN KEY (asiakastunnus) REFERENCES
 asiakas (asiakastunnus), 
 CONSTRAINT työntek_viite FOREIGN KEY (tyontektunnus) REFERENCES 
 tyontekija (tyontektunnus), 
-CONSTRAINT ajoneuvo_viite2 FOREIGN KEY (ajoneuvo_nro) REFERENCES ajoneuvo (ajoneuvo_nro)); 
+CONSTRAINT ajoneuvo_viite2 FOREIGN KEY (ajoneuvo_nro) REFERENCES ajoneuvo (ajoneuvo_nro));
+
+INSERT INTO tilausajo (asiakastunnus, tyontektunnus, ajoneuvo_nro, asiakasmaara, lähtöpaikka, maali, aloitusaika, lopetusaika) VALUES (1, 2, 1, 59, "OAMK Linnanmaa", "Rovaniemi", '2021-02-10 12:30:00', '2021-02-10 15:00:00');
+INSERT INTO tilausajo (asiakastunnus, tyontektunnus, ajoneuvo_nro, asiakasmaara, lähtöpaikka, maali, aloitusaika, lopetusaika) VALUES (1, 2, 1, 59, "Rovaniemi", "OAMK Linnanmaa", '2021-02-12 12:30:00', '2021-02-12 15:00:00');
+INSERT INTO tilausajo (asiakastunnus, tyontektunnus, ajoneuvo_nro, asiakasmaara, lähtöpaikka, maali, aloitusaika, lopetusaika) VALUES (2, 1, 2, 40, "Oulu Linja-autoas.", "Helsinki", '2021-04-29 09:00:00', '2021-05-02 15:00:00');
