@@ -17,7 +17,7 @@
         </div>
         <div>
             <label class="form-label">Puhelin: </label>
-            <input type="number" name="puh" maxlength="15" required />
+            <input type="text" name="puh" maxlength="15" required />
         </div>
         <div>
             <label class="form-label">Sähköposti: </label>

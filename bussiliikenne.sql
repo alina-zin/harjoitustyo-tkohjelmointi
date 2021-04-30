@@ -6,7 +6,7 @@ CREATE TABLE tyontekija (
 tyontektunnus INT PRIMARY KEY AUTO_INCREMENT, 
 nimi VARCHAR(50) NOT NULL, 
 henktunnus VARCHAR(11) NOT NULL, 
-puh INT NOT NULL ); 
+puh VARCHAR(13) NOT NULL ); 
 
 INSERT INTO tyontekija (nimi, henktunnus, puh) VALUES ("Matti Meikäläinen","010180-4567", 0509876543);
 INSERT INTO tyontekija (nimi, henktunnus, puh) VALUES ("Ville Meikäläinen","121290-1343", 0509871234);
@@ -54,7 +54,7 @@ CONSTRAINT tyontektunnus_viite FOREIGN KEY (tyontektunnus) REFERENCES tyontekija
 CREATE TABLE asiakas ( 
 asiakastunnus INT PRIMARY KEY AUTO_INCREMENT, 
 nimi VARCHAR(50) NOT NULL, 
-puh INT NOT NULL, 
+puh VARCHAR(13) NOT NULL, 
 sahkoposti VARCHAR(50));
 
 INSERT INTO asiakas (nimi, puh, sahkoposti) VALUES ("Emma Virtanen", 0449872356, "emma@posti.fi");
