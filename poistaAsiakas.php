@@ -17,4 +17,5 @@ try {
     header('Location: http://localhost/harjoitustyö-php/index.php');
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
+    print("ASIAKKAALLA TILAUKSIA");
 }
