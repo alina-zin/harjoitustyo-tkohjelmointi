@@ -9,7 +9,7 @@
         <form action="index.php">
             <input type="submit" class="btn btn-secondary" value="Asiakkaat" />
         </form>
-        <h1><i>Oulun bussifirma</i></h1>
+        <h1><i>Oulun Tilausajot</i></h1>
         <h3>Lisää asiakas:</h3>
         <form action="lisaaAsiakas.php" method="POST">
         <div>

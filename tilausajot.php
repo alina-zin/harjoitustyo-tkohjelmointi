@@ -48,12 +48,12 @@
                     print("</p>");
 
                     print("<p>");
-                    print("<b>Kuljettajan tunnus: </b>");
+                    print("<b>Työntekijä: </b>");
                     print($row['tyontektunnus']);
                     print("</p>");
 
                     print("<p>");
-                    print("<b>Ajoneuvo ID: </b>");
+                    print("<b>AjoneuvoID: </b>");
                     print($row['ajoneuvo_nro']);
                     print("</p>");
 
@@ -92,7 +92,7 @@
                     $aloitusaika = $row['aloitusaika'];
                     $lopetusaika = $row['lopetusaika'];
 
-                    print("<a href='muokkaaTilaus.php?tilausnro=$tilausnro'>Muokkaa tilaus</a>");
+                    print("<a href='muokkaaTilaus.php?tilausnro=$tilausnro&asiakastunnus=$asiakastunnus&tyontektunnus=$tyontektunnus&ajoneuvo_nro=$ajoneuvo_nro&asiakasmaara=$asiakasmaara&lähtöpaikka=$lähtöpaikka&maali=$maali&aloitusaika=$aloitusaika&lopetusaika=$lopetusaika'>Muokkaa tilaus</a>");
                     print("&nbsp; | &nbsp;");
 
                     print("<a href='poistaTilaus.php?tilausnro=$tilausnro'>Poista tilaus</a>");
