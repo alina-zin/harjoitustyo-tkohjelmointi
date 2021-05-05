@@ -51,7 +51,7 @@ try {
                 </div>
                 <div>
                     <label class="form-label">Mistä: </label>
-                    <input type="text" name="lähtöpaikka" value="<?php print $lahtopaikka;?>" maxlength="255" required />
+                    <input type="text" name="lahtopaikka" value="<?php print $lahtopaikka;?>" maxlength="255" required />
                 </div>
                 <div>
                     <label class="form-label">Lähtöaika: </label>
